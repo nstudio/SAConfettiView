@@ -11,12 +11,14 @@ import QuartzCore
 
 open class SAConfettiView: UIView {
 
+    public var customImage: UIImage
+
     public enum ConfettiType {
         case confetti
         case triangle
         case star
         case diamond
-        case image(UIImage)
+        case image
     }
 
     var emitter: CAEmitterLayer!
@@ -81,7 +83,7 @@ open class SAConfettiView: UIView {
             fileName = "star"
         case .diamond:
             fileName = "diamond"
-        case let .image(customImage):
+        case .image:
             return customImage
         }
 
