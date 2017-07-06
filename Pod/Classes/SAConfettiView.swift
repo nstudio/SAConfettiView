@@ -16,7 +16,7 @@ import QuartzCore
         case triangle
         case star
         case diamond
-        case image
+        case image(UIImage)
     }
 
     var emitter: CAEmitterLayer!
