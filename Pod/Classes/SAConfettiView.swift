@@ -12,7 +12,7 @@ import QuartzCore
 @objc open class SAConfettiView: UIView {
 
 
-    open enum ConfettiType: Int {
+    @objc public enum ConfettiType: Int {
         case confetti
         case triangle
         case star
