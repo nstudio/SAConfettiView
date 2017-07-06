@@ -83,7 +83,9 @@ import QuartzCore
             fileName = "star"
         case .diamond:
             fileName = "diamond"
-        case .image:
+        // case .image:
+        //     return customImage
+        case let .image(customImage):
             return customImage
         }
 
