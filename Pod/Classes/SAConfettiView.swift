@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-open class SAConfettiView: UIView {
+@objc open class SAConfettiView: UIView {
 
 
     public enum ConfettiType: Int {
