@@ -11,8 +11,7 @@ import QuartzCore
 
 @objc open class SAConfettiView: UIView {
 
-
-    @objc public enum ConfettiType: Int {
+    public enum ConfettiType {
         case confetti
         case triangle
         case star
@@ -71,7 +70,7 @@ import QuartzCore
         active = false
     }
 
-    func imageForType(_ type: ConfettiType) -> UIImage? {
+    open func imageForType(_ type: ConfettiType) -> UIImage? {
 
         var fileName: String!
 
