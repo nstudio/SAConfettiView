@@ -11,7 +11,6 @@ import QuartzCore
 
 open class SAConfettiView: UIView {
 
-    public var customImage: UIImage
 
     public enum ConfettiType {
         case confetti
@@ -25,6 +24,7 @@ open class SAConfettiView: UIView {
     open var colors: [UIColor]!
     open var intensity: Float!
     open var type: ConfettiType!
+    open var customImage: UIImage!
     fileprivate var active :Bool!
 
     required public init?(coder aDecoder: NSCoder) {
@@ -46,6 +46,7 @@ open class SAConfettiView: UIView {
         intensity = 0.5
         type = .confetti
         active = false
+        customImage = nil
     }
 
     open func startConfetti() {
