@@ -16,7 +16,7 @@ import QuartzCore
         case triangle
         case star
         case diamond
-        case image(UIImage)
+        case image
     }
 
     var emitter: CAEmitterLayer!
@@ -83,9 +83,7 @@ import QuartzCore
             fileName = "star"
         case .diamond:
             fileName = "diamond"
-        // case .image:
-        //     return customImage
-        case let .image(customImage):
+        case .image:
             return customImage
         }
 
