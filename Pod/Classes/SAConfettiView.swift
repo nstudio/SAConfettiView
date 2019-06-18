@@ -57,7 +57,7 @@ import QuartzCore
 
         var cells = [CAEmitterCell]()
         for color in colors {
-            cells.append(confettiWithColor(color: color))
+            cells.append(confettiWithColor(color))
         }
 
         emitter.emitterCells = cells
@@ -119,8 +119,8 @@ import QuartzCore
         confetti.spinRange = CGFloat(4.0 * intensity)
         confetti.scaleRange = CGFloat(intensity)
         confetti.scaleSpeed = CGFloat(-0.1 * intensity)
-        // confetti.contents = imageForType(type)!.cgImage
-        confetti.contents = imageForType(type: type)!.cgImage
+         confetti.contents = imageForType(type)!.cgImage
+//        confetti.contents = imageForType(type: type)!.cgImage
         return confetti
     }
 
