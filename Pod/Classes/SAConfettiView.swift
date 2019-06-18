@@ -50,14 +50,14 @@ import QuartzCore
 
     open func startConfetti() {
         emitter = CAEmitterLayer()
-
+  
         emitter.emitterPosition = CGPoint(x: frame.size.width / 2.0, y: 0)
-        emitter.emitterShape = kCAEmitterLayerLine
+        emitter.emitterShape = CAEmitterLayerEmitterShape.line
         emitter.emitterSize = CGSize(width: frame.size.width, height: 1)
 
         var cells = [CAEmitterCell]()
         for color in colors {
-            cells.append(confettiWithColor(color))
+            cells.append(confettiWithColor(color: color))
         }
 
         emitter.emitterCells = cells
@@ -91,9 +91,14 @@ import QuartzCore
         let bundle = Bundle(path: path!)
         let imagePath = bundle?.path(forResource: fileName, ofType: "png")
         let url = URL(fileURLWithPath: imagePath!)
-        let data = try? Data(contentsOf: url)
-        if let data = data {
-            return UIImage(data: data)!
+        // let data = try? Data(contentsOf: url)
+        // if let data = data {
+        //     return UIImage(data: data)!
+        do {
+            let data = try Data(contentsOf: url)
+            return UIImage(data: data)
+        } catch {
+            print(error)
         }
         return nil
     }
@@ -106,13 +111,16 @@ import QuartzCore
         confetti.color = color.cgColor
         confetti.velocity = CGFloat(350.0 * intensity)
         confetti.velocityRange = CGFloat(80.0 * intensity)
-        confetti.emissionLongitude = .pi
-        confetti.emissionRange = .pi/4
+        // confetti.emissionLongitude = .pi
+        // confetti.emissionRange = .pi/4
+        confetti.emissionLongitude = CGFloat(Double.pi)
+        confetti.emissionRange = CGFloat(Double.pi)
         confetti.spin = CGFloat(3.5 * intensity)
         confetti.spinRange = CGFloat(4.0 * intensity)
         confetti.scaleRange = CGFloat(intensity)
         confetti.scaleSpeed = CGFloat(-0.1 * intensity)
-        confetti.contents = imageForType(type)!.cgImage
+        // confetti.contents = imageForType(type)!.cgImage
+        confetti.contents = imageForType(type: type)!.cgImage
         return confetti
     }
 
