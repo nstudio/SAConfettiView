@@ -9,9 +9,9 @@
 import UIKit
 import QuartzCore
 
-@objcMembers public class SAConfettiView: UIView {
+@objc open class SAConfettiView: UIView {
 
-    public enum ConfettiType: Int {
+    @objc public enum ConfettiType: Int {
         case confetti
         case triangle
         case star
@@ -19,12 +19,12 @@ import QuartzCore
         case image
     }
 
-    var emitter: CAEmitterLayer!
-    var colors: [UIColor]!
-    var intensity: Float!
-    var type: ConfettiType!
-    var customImage: UIImage!
-    fileprivate var active :Bool!
+    @objc open var emitter: CAEmitterLayer!
+    @objc open var colors: [UIColor]!
+    @objc open var intensity: Float!
+    @objc open var type: ConfettiType!
+    @objc open var customImage: UIImage!
+    @objc open var active :Bool!
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -48,7 +48,7 @@ import QuartzCore
         customImage = nil
     }
 
-    func startConfetti() {
+    @objc open func startConfetti() {
         emitter = CAEmitterLayer()
   
         emitter.emitterPosition = CGPoint(x: frame.size.width / 2.0, y: 0)
@@ -65,12 +65,12 @@ import QuartzCore
         active = true
     }
 
-    func stopConfetti() {
+    @objc open func stopConfetti() {
         emitter?.birthRate = 0
         active = false
     }
 
-    func imageForType(_ type: ConfettiType) -> UIImage? {
+    @objc open func imageForType(_ type: ConfettiType) -> UIImage? {
 
         var fileName: String!
 
@@ -103,7 +103,7 @@ import QuartzCore
         return nil
     }
 
-    func confettiWithColor(_ color: UIColor) -> CAEmitterCell {
+    @objc open func confettiWithColor(_ color: UIColor) -> CAEmitterCell {
         let confetti = CAEmitterCell()
         confetti.birthRate = 6.0 * intensity
         confetti.lifetime = 14.0 * intensity
@@ -124,7 +124,7 @@ import QuartzCore
         return confetti
     }
 
-    func isActive() -> Bool {
+    @objc open func isActive() -> Bool {
     		return self.active
     }
 }
