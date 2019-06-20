@@ -11,7 +11,7 @@ import QuartzCore
 
 @objc open class SAConfettiView: UIView {
 
-    @objc open enum ConfettiType: Int {
+    @objc public enum ConfettiType: Int {
         case confetti
         case triangle
         case star
@@ -48,7 +48,7 @@ import QuartzCore
         customImage = nil
     }
 
-    @objc open func startConfetti() {
+    @objc public func startConfetti() {
         emitter = CAEmitterLayer()
   
         emitter.emitterPosition = CGPoint(x: frame.size.width / 2.0, y: 0)
@@ -65,12 +65,12 @@ import QuartzCore
         active = true
     }
 
-    @objc open func stopConfetti() {
+    @objc public func stopConfetti() {
         emitter?.birthRate = 0
         active = false
     }
 
-    @objc open func imageForType(_ type: ConfettiType) -> UIImage? {
+    @objc public func imageForType(_ type: ConfettiType) -> UIImage? {
 
         var fileName: String!
 
@@ -103,7 +103,7 @@ import QuartzCore
         return nil
     }
 
-    @objc open func confettiWithColor(_ color: UIColor) -> CAEmitterCell {
+    @objc public func confettiWithColor(_ color: UIColor) -> CAEmitterCell {
         let confetti = CAEmitterCell()
         confetti.birthRate = 6.0 * intensity
         confetti.lifetime = 14.0 * intensity
@@ -124,7 +124,7 @@ import QuartzCore
         return confetti
     }
 
-    @objc open func isActive() -> Bool {
+    @objc public func isActive() -> Bool {
     		return self.active
     }
 }
