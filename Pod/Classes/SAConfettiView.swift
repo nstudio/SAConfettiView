@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-@objc open class SAConfettiView: UIView {
+@objcMembers open class SAConfettiView: UIView {
 
     @objc public enum ConfettiType: Int {
         case confetti
@@ -20,10 +20,10 @@ import QuartzCore
     }
 
     var emitter: CAEmitterLayer!
-    open var colors: [UIColor]!
-    open var intensity: Float!
-    open var type: ConfettiType!
-    open var customImage: UIImage!
+    @objc open var colors: [UIColor]!
+    @objc open var intensity: Float!
+    @objc open var type: ConfettiType!
+    @objc open var customImage: UIImage!
     fileprivate var active :Bool!
 
     required public init?(coder aDecoder: NSCoder) {
