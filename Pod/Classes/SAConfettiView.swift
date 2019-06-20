@@ -9,9 +9,9 @@
 import UIKit
 import QuartzCore
 
-@objcMembers open class SAConfettiView: UIView {
+@objcMembers public class SAConfettiView: UIView {
 
-    @objc public enum ConfettiType: Int {
+    public enum ConfettiType: Int {
         case confetti
         case triangle
         case star
@@ -20,10 +20,10 @@ import QuartzCore
     }
 
     var emitter: CAEmitterLayer!
-    @objc open var colors: [UIColor]!
-    @objc open var intensity: Float!
-    @objc open var type: ConfettiType!
-    @objc open var customImage: UIImage!
+    var colors: [UIColor]!
+    var intensity: Float!
+    var type: ConfettiType!
+    var customImage: UIImage!
     fileprivate var active :Bool!
 
     required public init?(coder aDecoder: NSCoder) {
@@ -48,7 +48,7 @@ import QuartzCore
         customImage = nil
     }
 
-    @objc open func startConfetti() {
+    func startConfetti() {
         emitter = CAEmitterLayer()
   
         emitter.emitterPosition = CGPoint(x: frame.size.width / 2.0, y: 0)
@@ -65,12 +65,12 @@ import QuartzCore
         active = true
     }
 
-    @objc open func stopConfetti() {
+    func stopConfetti() {
         emitter?.birthRate = 0
         active = false
     }
 
-    open func imageForType(_ type: ConfettiType) -> UIImage? {
+    func imageForType(_ type: ConfettiType) -> UIImage? {
 
         var fileName: String!
 
@@ -124,7 +124,7 @@ import QuartzCore
         return confetti
     }
 
-    open func isActive() -> Bool {
+    func isActive() -> Bool {
     		return self.active
     }
 }
