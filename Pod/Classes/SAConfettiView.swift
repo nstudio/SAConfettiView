@@ -48,7 +48,7 @@ import QuartzCore
         customImage = nil
     }
 
-    open func startConfetti() {
+    @objc open func startConfetti() {
         emitter = CAEmitterLayer()
   
         emitter.emitterPosition = CGPoint(x: frame.size.width / 2.0, y: 0)
@@ -65,7 +65,7 @@ import QuartzCore
         active = true
     }
 
-    open func stopConfetti() {
+    @objc open func stopConfetti() {
         emitter?.birthRate = 0
         active = false
     }
